@@ -1,0 +1,61 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap-vue/src/index.scss';
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+a.nav-link.router-link-exact-active.active {
+  color: #0b2e13;
+  background-color: #0C9A9A;
+}
+ul.nav {
+  background-color: #0b2e13;
+}
+ul.nav a{
+  color: #fff0ff;
+}
+ul.nav a:hover{
+
+}
+li.nav-item {
+  text-align: center;
+  display: table-cell;
+  border: 1px solid #3d4766;
+  width: 25%;
+}
+.widget {
+  padding: 0;
+  margin: 0 auto;
+  background-color: #00AAAA;
+  color: #fff0ff;
+}
+
+.btn-primary {
+  color: #fff0ff;
+  background-color: #0b2e13;
+  border-color: #0b2e13;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #dbafb4;
+  border-color: #dbafb4;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0C9A9A;
+  border-color: #0C9A9A;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0C9A9A;
+  border-color: #0C9A9A;
+}
+.jumbotron {
+  background-color: #76a8a8;
+}
+footer small a {
+  color: #0b2e13;
+}
+footer {
+  padding: 10px;
+}
