@@ -109,7 +109,10 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      this.results.bmi = Math.floor((Math.random() * 1500) + 1)
+      if(this.form.height.feet.selected == null) return null
+      let inches = this.form.height.inches.selected != null ? parseInt(this.form.height.inches.selected) : 0
+      let heightInInches = (parseInt(this.form.height.feet.selected) * 12) + inches
+      this.results.bmi = (parseFloat(this.form.weight) / Math.pow(heightInInches,2) * 703).toFixed(2)
     },
     onReset (evt) {
       evt.preventDefault()

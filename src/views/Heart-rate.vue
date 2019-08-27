@@ -80,7 +80,8 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      this.results.recommendedTargetHeartRate = Math.floor((Math.random() * 1500) + 1)
+      if(this.form.levelOfExercise.selected == null) return null
+      this.results.recommendedTargetHeartRate = Math.floor(( (220 - parseInt(this.form.age)) * parseInt(this.form.levelOfExercise.selected) ) / 100 )
     },
     onReset (evt) {
       evt.preventDefault()

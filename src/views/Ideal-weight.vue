@@ -38,7 +38,7 @@
             <tr>
                 <th scope="row">Ideal weight</th>
                 <td>{{ results.weight }}</td>
-                <td>{{ results.weight * 10 }}</td>
+                <td>{{ results.weight != '' ? results.weight * 10 : '' }}</td>
             </tr>
             </tbody>
         </table>
@@ -89,7 +89,10 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      this.results.weight = Math.floor((Math.random() * 1500) + 1)
+      if(this.form.height.feet.selected == null) return null
+      let inches = this.form.height.inches.selected != null ? parseInt(this.form.height.inches.selected) : 0
+      let heightInCM = ((parseInt(this.form.height.feet.selected) * 12) + inches) * 2.54
+      this.results.weight = (50 + (0.9 * (heightInCM - 152 ))).toFixed(2)
     },
     onReset (evt) {
       evt.preventDefault()
