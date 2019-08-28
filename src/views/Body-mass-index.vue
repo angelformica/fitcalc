@@ -4,13 +4,6 @@
             <h2>Body mass index</h2>
         </b-col>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-            <b-form-group label="Calculate:">
-                <b-form-radio-group id="radio-group-2" v-model="form.adultKid" name="radio-sub-component">
-                    <b-form-radio value="adult">Adult BMI</b-form-radio>
-                    <b-form-radio value="kid">Kid BMI</b-form-radio>
-                </b-form-radio-group>
-            </b-form-group>
-
             <b-form-group label="Your height">
                 <b-row>
                     <b-col>
@@ -29,7 +22,6 @@
                     </b-col>
                 </b-row>
             </b-form-group>
-
             <b-form-group
                     id="input-group-1"
                     label="Your weight:"
