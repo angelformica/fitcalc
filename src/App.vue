@@ -21,7 +21,6 @@
         <footer>
           <p>
             <small>
-              <!--<h1 style="text-align: center" v-if="$root.title">{{ $root.title }}</h1>-->
               Note: These calculations are based on averages. Calculators are appropriate for healthy, non-pregnant adults 19 and older. Athletes may require a higher caloric intake to maintain their current weight.
             </small>
           </p>

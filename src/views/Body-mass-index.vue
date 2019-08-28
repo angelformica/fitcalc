@@ -109,16 +109,14 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      if(this.form.height.feet.selected == null) return null
+      if (this.form.height.feet.selected == null) return null
       let inches = this.form.height.inches.selected != null ? parseInt(this.form.height.inches.selected) : 0
-      let heightInInches = (parseInt(this.form.height.feet.selected) * 12) + inches
-      this.results.bmi = (parseFloat(this.form.weight) / Math.pow(heightInInches,2) * 703).toFixed(2)
+      let x = (parseInt(this.form.height.feet.selected) * 12) + inches
+      this.results.bmi = (parseFloat(this.form.weight) / Math.pow(x, 2) * 703).toFixed(2)
     },
     onReset (evt) {
       evt.preventDefault()
-      // Reset our form values
       this.form.dailyCaloricNeeds = ''
-      // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
         this.show = true

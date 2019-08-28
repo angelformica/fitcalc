@@ -38,7 +38,7 @@
             <tr>
                 <th scope="row">Ideal weight</th>
                 <td>{{ results.weight }}</td>
-                <td>{{ results.weight != '' ? (results.weight * 2.20462).toFixed(2) : '' }}</td>
+                <td>{{ results.weight !== '' ? (results.weight * 2.20462).toFixed(2) : '' }}</td>
             </tr>
             </tbody>
         </table>
@@ -89,16 +89,14 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      if(this.form.height.feet.selected == null) return null
+      if (this.form.height.feet.selected == null) return null
       let inches = this.form.height.inches.selected != null ? parseInt(this.form.height.inches.selected) : 0
       let heightInCM = ((parseInt(this.form.height.feet.selected) * 12) + inches) * 2.54
-      this.results.weight = (50 + (0.9 * (heightInCM - 152 ))).toFixed(2)
+      this.results.weight = (50 + (0.9 * (heightInCM - 152))).toFixed(2)
     },
     onReset (evt) {
       evt.preventDefault()
-      // Reset our form values
       this.form.dailyCaloricNeeds = ''
-      // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
         this.show = true

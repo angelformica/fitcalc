@@ -77,47 +77,41 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      this.results.carbohydrates.gramsPerDay    = this.nutritionPerDayCalculator("carbohydrate").grams
-      this.results.carbohydrates.caloriesPerDay = this.nutritionPerDayCalculator("carbohydrate").cal
-      this.results.proteins.gramsPerDay         = this.nutritionPerDayCalculator("protein").grams
-      this.results.proteins.caloriesPerDay      = this.nutritionPerDayCalculator("protein").cal
-      this.results.fats.gramsPerDay             = this.nutritionPerDayCalculator("fat").grams
-      this.results.fats.caloriesPerDay          = this.nutritionPerDayCalculator("fat").cal
+      this.results.carbohydrates.gramsPerDay = this.nutritionPerDayCalculator('carbohydrate').grams
+      this.results.carbohydrates.caloriesPerDay = this.nutritionPerDayCalculator('carbohydrate').cal
+      this.results.proteins.gramsPerDay = this.nutritionPerDayCalculator('protein').grams
+      this.results.proteins.caloriesPerDay = this.nutritionPerDayCalculator('protein').cal
+      this.results.fats.gramsPerDay = this.nutritionPerDayCalculator('fat').grams
+      this.results.fats.caloriesPerDay = this.nutritionPerDayCalculator('fat').cal
     },
-    nutritionPerDayCalculator(type){
-      /// For a person -> 
-      ///     Carbohydrate : 40% to 65%
-      ///     Protein      : 20% to 35%
-      ///     Fat          : 10% to 35%
-
+    nutritionPerDayCalculator (type) {
       let crbToPerGramFactor = 4
       let prnToPerGramFactor = 4
       let fatToPerGramFactor = 9
+      let avgCarbohydratesPercent = 52.5
+      let avgProteinPercent = 27.5
+      let avgFatPercent = 22.5
 
-      let avgCarboPerct   = 52.5    //( 40 + 65 ) / 2
-      let avgProteinPerct = 27.5    //( 20 + 35 ) / 2
-      let avgFatPerct     = 22.5    //( 10 + 35 ) / 2
-
-      let nutri = {
-        grams : 0,
-        cal : 0
+      let nutritionalNeeds = {
+        grams: 0,
+        cal: 0
       }
 
-      switch(type){
-        case "carbohydrate":
-          nutri.grams = Math.floor( ((this.form.dailyCaloricNeeds * avgCarboPerct) / 100) / crbToPerGramFactor )
-          nutri.cal   = Math.floor( ((this.form.dailyCaloricNeeds * avgCarboPerct) / 100 ) )
-          break;
-        case "protein":
-          nutri.grams = Math.floor( ((this.form.dailyCaloricNeeds * avgProteinPerct) / 100) / prnToPerGramFactor )
-          nutri.cal   = Math.floor( ((this.form.dailyCaloricNeeds * avgProteinPerct) / 100 ) )
-          break;
-        case "fat":
-          nutri.grams = Math.floor( ((this.form.dailyCaloricNeeds * avgFatPerct) / 100) / fatToPerGramFactor )
-          nutri.cal   = Math.floor( ((this.form.dailyCaloricNeeds * avgFatPerct) / 100 ) )
-          break;
+      switch (type) {
+        case 'carbohydrate':
+          nutritionalNeeds.grams = Math.floor(((this.form.dailyCaloricNeeds * avgCarbohydratesPercent) / 100) / crbToPerGramFactor)
+          nutritionalNeeds.cal = Math.floor(((this.form.dailyCaloricNeeds * avgCarbohydratesPercent) / 100))
+          break
+        case 'protein':
+          nutritionalNeeds.grams = Math.floor(((this.form.dailyCaloricNeeds * avgProteinPercent) / 100) / prnToPerGramFactor)
+          nutritionalNeeds.cal = Math.floor(((this.form.dailyCaloricNeeds * avgProteinPercent) / 100))
+          break
+        case 'fat':
+          nutritionalNeeds.grams = Math.floor(((this.form.dailyCaloricNeeds * avgFatPercent) / 100) / fatToPerGramFactor)
+          nutritionalNeeds.cal = Math.floor(((this.form.dailyCaloricNeeds * avgFatPercent) / 100))
+          break
       }
-      return nutri
+      return nutritionalNeeds
     },
     onReset (evt) {
       evt.preventDefault()

@@ -80,14 +80,12 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      if(this.form.levelOfExercise.selected == null) return null
-      this.results.recommendedTargetHeartRate = Math.floor(( (220 - parseInt(this.form.age)) * parseInt(this.form.levelOfExercise.selected) ) / 100 )
+      if (this.form.levelOfExercise.selected == null) return null
+      this.results.recommendedTargetHeartRate = Math.floor(((220 - parseInt(this.form.age)) * parseInt(this.form.levelOfExercise.selected)) / 100)
     },
     onReset (evt) {
       evt.preventDefault()
-      // Reset our form values
       this.form.dailyCaloricNeeds = ''
-      // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
         this.show = true
