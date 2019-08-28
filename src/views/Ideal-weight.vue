@@ -38,7 +38,7 @@
             <tr>
                 <th scope="row">Ideal weight</th>
                 <td>{{ results.weight }}</td>
-                <td>{{ results.weight != '' ? results.weight * 10 : '' }}</td>
+                <td>{{ results.weight != '' ? (results.weight * 2.20462).toFixed(2) : '' }}</td>
             </tr>
             </tbody>
         </table>
