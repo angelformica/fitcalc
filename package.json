@@ -12,7 +12,7 @@
     "bootstrap-vue": "^2.0.0-rc.28",
     "document-register-element": "^1.14.3",
     "lodash": "^4.17.21",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "vue": "^2.6.10",
     "vue-custom-element": "^3.2.7",
     "vue-router": "^3.1.2",
